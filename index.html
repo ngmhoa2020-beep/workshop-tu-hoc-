@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop: Kiến Tạo Thói Quen Tự Học Cho Con | Minh Hoa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0F1A12;
+  --forest:   #1A3325;
+  --forest2:  #244B35;
+  --moss:     #3A6B4A;
+  --sage:     #7AAE8A;
+  --gold:     #C8962A;
+  --gold2:    #E8B840;
+  --gold3:    #F5E4A8;
+  --cream:    #FAF6EE;
+  --warm:     #F2EAD8;
+  --rose:     #9E3535;
+  --text:     #1C1008;
+  --muted:    #5A4A32;
+  --border:   #D8CEBC;
+  --white:    #FFFFFF;
+  --terracotta:      #C17A54;
+  --terracotta-dark: #A8623E;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Be Vietnam Pro',sans-serif;
+  background:var(--ink);
+  color:var(--white);
+  line-height:1.7;
+  font-size:16px;
+  overflow-x:hidden;
+}
+
+.serif{font-family:'Cormorant Garamond',serif;}
+h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.15;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:22% 30%;display:block;}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to right, rgba(10,22,14,0.05) 0%, rgba(10,22,14,0.35) 38%, rgba(10,22,14,0.82) 62%, rgba(10,22,14,0.94) 100%),
+    linear-gradient(to bottom, rgba(10,22,14,0.25) 0%, rgba(10,22,14,0.15) 30%, rgba(10,22,14,0.55) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;max-width:600px;width:100%;
+  padding:100px 5vw 90px 40px;text-align:left;margin-left:auto;
+  display:flex;flex-direction:column;align-items:flex-start;
+}
+@media(max-width:900px){
+  .hero{justify-content:center;}
+  .hero-content{padding:100px 24px 70px;max-width:640px;margin:0 auto;text-align:center;align-items:center;}
+  .hero-bg img{object-position:30% 22%;}
+  .hero-bg::after{background:linear-gradient(to bottom, rgba(10,22,14,0.55) 0%, rgba(10,22,14,0.75) 42%, rgba(10,22,14,0.92) 100%);}
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);
+  color:rgba(255,255,255,0.85);font-size:11px;font-weight:600;letter-spacing:1.5px;
+  padding:6px 18px;border-radius:40px;margin-bottom:28px;width:fit-content;
+}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 8px rgba(74,222,128,0.9);flex-shrink:0;}
+.hero h1{
+  font-family:'Be Vietnam Pro',sans-serif;font-size:clamp(28px,4.8vw,48px);color:var(--white);
+  margin-bottom:20px;font-weight:800;line-height:1.26;text-align:left;
+  text-shadow:0 4px 30px rgba(0,0,0,0.45);
+}
+@media(max-width:900px){ .hero h1{text-align:center;} }
+.hero h1 .hl{color:#4ADE80;}
+.hero h1 em{font-style:normal;color:var(--gold2);}
+.hero-sub{
+  font-family:'Be Vietnam Pro',sans-serif;font-style:normal;font-size:15.5px;
+  color:rgba(255,255,255,0.78);margin-bottom:32px;max-width:520px;line-height:1.75;text-align:left;
+}
+@media(max-width:900px){ .hero-sub{text-align:center;margin-left:auto;margin-right:auto;} }
+.hero-meta{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:36px;justify-content:flex-start;}
+@media(max-width:900px){ .hero-meta{justify-content:center;} }
+.meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.72);font-weight:500;}
+.meta-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.btn-cta{
+  display:inline-block;background:var(--gold);color:var(--ink);font-family:'Be Vietnam Pro',sans-serif;
+  font-size:15px;font-weight:800;padding:16px 40px;border-radius:2px;text-decoration:none;letter-spacing:0.5px;
+  transition:all .2s;box-shadow:0 4px 24px rgba(200,150,42,0.35);width:fit-content;
+}
+.btn-cta:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,150,42,0.45);}
+.btn-note{margin-top:10px;font-size:12px;color:rgba(255,255,255,0.5);}
+
+/* ── SECTIONS SHARED ── */
+.pain{background:var(--ink);padding:96px 0;}
+.container{max-width:760px;margin:0 auto;padding:0 28px;}
+.container-wide{max-width:980px;margin:0 auto;padding:0 28px;}
+.sec-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.sec-eyebrow::after{content:'';flex:1;height:1px;background:rgba(200,150,42,0.25);}
+.pain-opener{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,36px);font-style:italic;
+  color:rgba(255,255,255,0.85);line-height:1.45;margin-bottom:48px;
+}
+.pain-list{list-style:none;margin:0 0 48px;}
+.pain-item{
+  display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:16px;color:rgba(255,255,255,0.7);line-height:1.65;
+}
+.pain-item:last-child{border-bottom:none;}
+.pain-num{
+  font-family:'Cormorant Garamond',serif;font-size:28px;color:rgba(200,150,42,0.3);
+  font-weight:600;line-height:1;flex-shrink:0;width:32px;
+}
+.truth-block{background:var(--rose);border-radius:4px;padding:36px 40px;}
+.truth-block .truth-label{
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:14px;
+}
+.truth-block p{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,3vw,28px);color:var(--white);line-height:1.4;
+}
+.truth-block p strong{color:var(--gold3);}
+
+/* ── STORY ── */
+.story{background:var(--forest);padding:96px 0;position:relative;}
+.story::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right, transparent, var(--gold), transparent);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+@media(max-width:768px){.story-grid{grid-template-columns:1fr;gap:48px;}}
+.story-text p{color:rgba(255,255,255,0.75);font-size:16px;margin-bottom:22px;line-height:1.9;}
+.story-text p strong{color:var(--white);}
+.story-text em{color:var(--gold2);font-style:italic;}
+.story-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+.stat-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:24px 20px;text-align:center;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--gold2);line-height:1;margin-bottom:6px;}
+.stat-label{font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.5;}
+.teacher-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:24px;margin-top:16px;grid-column:1/-1;}
+.teacher-box p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;margin:0;font-style:italic;}
+.teacher-box p strong{color:rgba(255,255,255,0.8);}
+
+/* ── MOMENT ── */
+.moment{background:var(--cream);padding:80px 0;}
+.moment-frame{max-width:880px;margin:0 auto;border-radius:6px;overflow:hidden;box-shadow:0 24px 60px rgba(26,51,37,0.22);}
+.moment-frame img{width:100%;height:auto;display:block;}
+.moment-caption{
+  max-width:620px;margin:28px auto 0;text-align:center;font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:clamp(18px,2.2vw,23px);color:var(--muted);line-height:1.6;
+}
+
+/* ── COMPARE ── */
+.compare{background:var(--ink);padding:96px 0;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px;border-radius:4px;overflow:hidden;}
+@media(max-width:640px){.compare-grid{grid-template-columns:1fr;}}
+.compare-col{padding:40px 36px;}
+.compare-col.bad{background:rgba(255,255,255,0.04);}
+.compare-col.good{background:var(--forest2);}
+.compare-head{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.compare-col.bad .compare-head{color:rgba(255,255,255,0.35);}
+.compare-col.good .compare-head{color:var(--gold2);}
+.compare-item{
+  display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:14.5px;line-height:1.65;
+}
+.compare-item:last-child{border-bottom:none;}
+.compare-col.bad .compare-item{color:rgba(255,255,255,0.45);}
+.compare-col.good .compare-item{color:rgba(255,255,255,0.8);}
+.ci-icon{flex-shrink:0;margin-top:2px;font-size:14px;}
+
+/* ── WORKSHOP SESSIONS ── */
+.workshop{background:var(--cream);padding:96px 0;}
+.workshop h2{color:var(--ink);}
+.workshop-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--moss);
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
+}
+.workshop-eyebrow::after{content:'';flex:1;height:1px;background:rgba(58,107,74,0.2);}
+.session-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+@media(max-width:800px){.session-wrap{grid-template-columns:1fr;}}
+.session-card{background:var(--white);border-radius:4px;overflow:hidden;border:1px solid var(--border);}
+.session-card-body{padding:32px 28px;}
+.session-tag{
+  display:inline-block;background:var(--forest);color:var(--gold2);font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:2px;margin-bottom:14px;
+}
+.session-title{
+  font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);font-weight:600;
+  margin-bottom:18px;line-height:1.3;
+}
+.session-sublabel{
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);
+  margin:18px 0 8px;
+}
+.session-sublabel:first-of-type{margin-top:0;}
+.session-items{list-style:none;}
+.session-items li{
+  padding:9px 0 9px 18px;position:relative;font-size:14px;color:var(--muted);
+  border-bottom:1px solid var(--border);line-height:1.6;
+}
+.session-items li:last-child{border-bottom:none;}
+.session-items li::before{content:'→';position:absolute;left:0;color:var(--rose);font-size:12px;top:10px;}
+.session-footer{
+  padding:16px 28px;background:var(--warm);border-top:1px solid var(--border);
+  font-size:13px;color:var(--muted);font-style:italic;
+}
+
+/* ── TESTIMONIAL ── */
+.testi{background:var(--forest);padding:96px 0;}
+.testi-card{
+  max-width:640px;margin:0 auto;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:4px;overflow:hidden;margin-top:48px;
+}
+.testi-shot{width:100%;display:block;}
+.testi-footer{padding:20px 40px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);}
+.testi-footer p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--gold2);line-height:1.6;}
+
+/* ── FOR WHO ── */
+.forwho{background:var(--cream);padding:96px 0;}
+.forwho-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+@media(max-width:640px){.forwho-grid{grid-template-columns:1fr;}}
+.fw-card{border-radius:4px;overflow:hidden;}
+.fw-card-head{padding:16px 24px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.fw-card.yes .fw-card-head{background:var(--forest);color:var(--gold2);}
+.fw-card.no  .fw-card-head{background:rgba(158,53,53,0.12);color:var(--rose);}
+.fw-card-body{border:1px solid var(--border);border-top:none;border-radius:0 0 4px 4px;}
+.fw-item{
+  display:flex;align-items:flex-start;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border);
+  font-size:14.5px;color:var(--muted);line-height:1.6;
+}
+.fw-item:last-child{border-bottom:none;}
+.fw-icon{flex-shrink:0;margin-top:2px;font-size:15px;}
+
+/* ── URGENCY ── */
+.urgency{background:var(--ink);padding:96px 0;}
+.urgency-list{margin-top:40px;}
+.urgency-item{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.urgency-item:last-child{border-bottom:none;}
+.urgency-icon{font-size:24px;flex-shrink:0;}
+.urgency-title{font-weight:700;color:var(--white);font-size:16px;margin-bottom:8px;line-height:1.5;}
+.urgency-desc{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.75;}
+
+/* ── PRICE ── */
+.price{background:var(--forest);padding:96px 0;}
+.price-card{max-width:520px;margin:48px auto 0;border:1px solid rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;}
+.price-head{background:var(--forest2);padding:32px 36px;text-align:center;}
+.price-head h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);font-weight:600;margin-bottom:4px;}
+.price-head p{color:rgba(255,255,255,0.5);font-size:13px;}
+.price-body{padding:36px;background:var(--ink);}
+.price-num{text-align:center;margin-bottom:28px;}
+.price-old{font-size:14px;color:rgba(255,255,255,0.3);text-decoration:line-through;margin-bottom:4px;}
+.price-new{font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--gold);font-weight:700;line-height:1;}
+.price-unit{font-family:'Be Vietnam Pro',sans-serif;font-size:18px;color:rgba(255,255,255,0.4);font-weight:400;}
+.price-note-text{font-size:12px;color:rgba(255,255,255,0.3);margin-top:6px;}
+.price-includes{list-style:none;margin-bottom:28px;}
+.pi-item{
+  display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.07);
+  font-size:14.5px;color:rgba(255,255,255,0.7);
+}
+.pi-item:last-child{border-bottom:none;}
+.pi-check{color:var(--sage);flex-shrink:0;margin-top:2px;}
+.btn-price{
+  display:block;background:var(--gold);color:var(--ink);text-align:center;padding:17px;border-radius:2px;
+  font-weight:800;font-size:15px;text-decoration:none;letter-spacing:0.5px;transition:all .2s;
+  box-shadow:0 4px 20px rgba(200,150,42,0.3);
+}
+.btn-price:hover{background:var(--gold2);transform:translateY(-1px);}
+.guarantee{
+  display:flex;align-items:flex-start;gap:12px;background:rgba(200,150,42,0.08);border:1px solid rgba(200,150,42,0.2);
+  border-radius:4px;padding:16px 18px;margin-top:16px;font-size:13px;color:rgba(255,255,255,0.62);line-height:1.65;
+}
+.guarantee-icon{font-size:22px;flex-shrink:0;}
+
+/* ── FAQ ── */
+.faq{background:var(--ink);padding:96px 0;}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:22px 0;}
+.faq-q{font-weight:700;color:var(--white);font-size:15.5px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;}
+.faq-q-num{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold);font-weight:600;flex-shrink:0;line-height:1;margin-top:1px;}
+.faq-a{font-size:14.5px;color:rgba(255,255,255,0.58);line-height:1.75;padding-left:38px;}
+
+/* ── MEET ── */
+.meet{background:var(--forest);padding:96px 0;position:relative;}
+.meet::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right, transparent, rgba(200,150,42,0.3), transparent);}
+.meet-grid{display:grid;grid-template-columns:380px 1fr;gap:72px;align-items:start;}
+@media(max-width:768px){.meet-grid{grid-template-columns:1fr;gap:40px;}}
+.meet-img-wrap{position:relative;}
+.meet-img-wrap img{width:100%;border-radius:4px;display:block;object-fit:cover;filter:brightness(0.95) saturate(0.95);}
+.meet-img-wrap::after{content:'';position:absolute;inset:0;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(200,150,42,0.2);}
+.meet-text p{color:rgba(255,255,255,0.68);font-size:16px;margin-bottom:18px;line-height:1.8;}
+.meet-text p strong{color:var(--white);}
+.meet-text em{color:var(--gold2);font-style:italic;}
+.meet-name{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--white);font-weight:600;margin-bottom:4px;}
+.meet-role{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:32px;font-style:italic;letter-spacing:0.5px;}
+.meet-facts{list-style:none;margin-top:24px;}
+.meet-fact{
+  display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+  font-size:14.5px;color:rgba(255,255,255,0.65);line-height:1.6;
+}
+.meet-fact:last-child{border-bottom:none;}
+.mf-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:8px;}
+
+/* ── FINAL CTA ── */
+.final{background:var(--ink);padding:96px 0;text-align:center;}
+.final h2{font-size:clamp(30px,5vw,54px);color:var(--white);margin-bottom:14px;}
+.final h2 em{font-style:italic;color:var(--gold2);}
+.final p{color:rgba(255,255,255,0.55);max-width:480px;margin:0 auto 40px;font-size:16px;}
+.final-sub{margin-top:12px;font-size:12px;color:rgba(255,255,255,0.3);}
+
+/* ── STICKY ── */
+.sticky{
+  position:fixed;bottom:0;left:0;right:0;background:rgba(15,26,18,0.96);backdrop-filter:blur(16px);
+  padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  z-index:100;border-top:1px solid rgba(200,150,42,0.2);
+}
+.sticky p{color:rgba(255,255,255,0.7);font-size:13.5px;margin:0;}
+.sticky p strong{color:var(--white);}
+.btn-sticky{
+  background:var(--gold);color:var(--ink);padding:10px 28px;border-radius:2px;font-weight:800;font-size:13.5px;
+  text-decoration:none;white-space:nowrap;letter-spacing:0.3px;
+}
+@media(max-width:480px){.sticky p{display:none;}}
+
+.divider{width:40px;height:2px;background:var(--gold);border-radius:1px;margin:24px 0;}
+.divider.center{margin-left:auto;margin-right:auto;}
+
+/* ── REGISTRATION MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(15,26,18,0.72);
+  display:none;align-items:center;justify-content:center;
+  z-index:1000;padding:20px;
+}
+.modal-overlay.active{display:flex;}
+.modal-card{
+  background:var(--cream);border-radius:20px;max-width:440px;width:100%;
+  padding:44px 36px 36px;position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,0.4);
+  animation:modalPop .25s ease both;
+}
+@keyframes modalPop{from{opacity:0;transform:scale(0.96) translateY(8px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.modal-close{
+  position:absolute;top:18px;right:20px;background:none;border:none;
+  font-size:22px;color:var(--text);opacity:0.5;cursor:pointer;line-height:1;
+  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+}
+.modal-close:hover{opacity:0.9;}
+.modal-title{
+  font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--text);
+  text-align:center;margin-bottom:28px;line-height:1.3;
+}
+.modal-sub{
+  font-size:13.5px;color:var(--muted);text-align:center;margin-top:-16px;margin-bottom:24px;line-height:1.6;
+}
+.modal-field{
+  width:100%;padding:15px 18px;border:1px solid var(--border);border-radius:10px;
+  background:var(--white);font-family:'Be Vietnam Pro',sans-serif;font-size:15px;color:var(--text);
+  margin-bottom:14px;transition:border-color .15s, box-shadow .15s;
+}
+.modal-field::placeholder{color:#B3A88F;}
+.modal-field:focus{
+  outline:none;border-color:var(--terracotta);
+  box-shadow:0 0 0 3px rgba(193,122,84,0.15);
+}
+.btn-modal{
+  width:100%;background:var(--terracotta);color:var(--white);border:none;
+  padding:17px;border-radius:10px;font-family:'Be Vietnam Pro',sans-serif;
+  font-weight:800;font-size:14.5px;letter-spacing:0.5px;text-transform:uppercase;
+  cursor:pointer;transition:background .15s, transform .15s;margin-top:4px;
+}
+.btn-modal:hover{background:var(--terracotta-dark);transform:translateY(-1px);}
+.modal-guarantee{
+  text-align:center;font-size:12.5px;color:var(--muted);font-style:italic;margin-top:16px;line-height:1.5;
+}
+.modal-success{display:none;text-align:center;}
+.modal-success.active{display:block;}
+.modal-success .modal-title{margin-bottom:12px;}
+.modal-success p{font-size:14.5px;color:var(--muted);line-height:1.7;margin-bottom:24px;}
+.btn-modal-zalo{
+  display:inline-block;background:var(--terracotta);color:var(--white);text-decoration:none;
+  padding:16px 32px;border-radius:10px;font-weight:800;font-size:14.5px;letter-spacing:0.5px;
+}
+.btn-modal-zalo:hover{background:var(--terracotta-dark);}
+.modal-form.hidden{display:none;}
+
+.modal-pay{display:none;}
+.modal-pay.active{display:block;}
+.pay-qr-wrap{text-align:center;margin:8px 0 20px;}
+.pay-qr-img{max-width:220px;width:100%;border:6px solid var(--white);border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.1);}
+.pay-info{
+  background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:16px 18px;margin-bottom:18px;
+}
+.pay-info-row{
+  display:flex;justify-content:space-between;gap:12px;padding:7px 0;
+  border-bottom:1px solid var(--border);font-size:13.5px;color:var(--muted);
+}
+.pay-info-row:last-child{border-bottom:none;}
+.pay-info-row strong{color:var(--text);font-family:monospace;font-size:14px;text-align:right;}
+.pay-status{
+  padding:13px;text-align:center;border-radius:10px;font-weight:700;font-size:14px;
+}
+.pay-status.pending{background:rgba(158,53,53,0.08);color:var(--terracotta-dark);}
+.pay-status.paid{background:rgba(58,107,74,0.12);color:var(--forest);}
+.pay-pulse{
+  display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;
+  margin-right:8px;vertical-align:middle;animation:payPulse 1.5s ease-in-out infinite;
+}
+@keyframes payPulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{animation:fadeUp .5s .1s ease both;}
+.hero h1{animation:fadeUp .6s .25s ease both;}
+.hero-sub{animation:fadeUp .6s .4s ease both;}
+.hero-meta{animation:fadeUp .6s .5s ease both;}
+.hero .btn-cta{animation:fadeUp .6s .6s ease both;}
+.hero .btn-note{animation:fadeUp .6s .7s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="hero.jpg" alt="Chị Minh Hoa">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Workshop Online · Kiến Tạo Thói Quen Tự Học Cho Con · Mẹ Có Con 6–13 Tuổi
+    </div>
+
+    <h1>
+      Đây Là Cách <span class="hl">Dễ Dàng Nhất</span> Mình Đã Làm,<br>
+      Đưa Con Từ <em>Lười Học, Mê Điện Thoại</em><br>
+      Đến <span class="hl">Tự Giác Học</span> —<br>
+      Không Quát, Không Ép,<br>
+      Không Tốn Tiền Học Thêm
+    </h1>
+
+    <p class="hero-sub">
+      Khám phá và copy toàn bộ quy trình 3 bước mà Hoa đã đúc kết từ hơn 10 năm đồng hành cùng 2 con mình — ngay cả khi mẹ bận rộn và không giỏi kèm con học.
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-dot"></span>2 Buổi Zoom Trực Tiếp</div>
+      <div class="meta-item"><span class="meta-dot"></span>Tối 04 &amp; 05 Tháng 8</div>
+      <div class="meta-item"><span class="meta-dot"></span>Ghi Hình Xem Lại Không Giới Hạn</div>
+    </div>
+
+    <a href="#dang-ky" class="btn-cta" onclick="openRegModal();return false;">ĐĂNG KÝ GIỮ CHỖ NGAY</a>
+    <p class="btn-note">Chỉ 99.000đ · Hoàn tiền 100% nếu không thấy giá trị sau Buổi 1</p>
+  </div>
+</section>
+
+
+<!-- ══ PAIN ══ -->
+<section class="pain">
+  <div class="container">
+    <div class="sec-eyebrow">Câu chuyện quen thuộc</div>
+
+    <p class="pain-opener">
+      "Đã dành rất nhiều thời gian, tiền bạc, công sức … mà vẫn chưa thể giúp con thay đổi."
+    </p>
+
+    <ul class="pain-list">
+      <li class="pain-item">
+        <span class="pain-num">01</span>
+        <span>Mẹ đi làm cả ngày, tối về lại tất bật kèm con học. Nhắc đến khản cả giọng mà con vẫn lơ đãng, mở sách ra nhưng tâm hồn còn ở game trên điện thoại, hay ở bộ lego đang chơi dở…</span>
+      </li>
+      <li class="pain-item">
+        <span class="pain-num">02</span>
+        <span>Cô giáo nhắn tin đều đặn: con thiếu bài, con mất tập trung, con chưa có ý thức học, con trêu chọc bạn… Mẹ lo lắng.</span>
+      </li>
+      <li class="pain-item">
+        <span class="pain-num">03</span>
+        <span>Mẹ đã đổi hết gia sư này đến lớp học thêm khác, tốn công tốn của mà kết quả chỉ tiến triển ở mấy hôm đầu.</span>
+      </li>
+      <li class="pain-item">
+        <span class="pain-num">04</span>
+        <span>Con mê điện thoại, tivi hơn mê sách vở. Mẹ giám sát mãi cũng đuối, mà buông ra một chút là con lại chúi mặt vào màn hình.</span>
+      </li>
+      <li class="pain-item">
+        <span class="pain-num">05</span>
+        <span>Mẹ quát mắng, đòn roi với con xong lại ân hận. Nhủ thầm sẽ kiềm chế nhưng rồi vài hôm sau lại lặp lại, không khí gia đình nặng nề theo.</span>
+      </li>
+    </ul>
+
+    <div class="truth-block">
+      <div class="truth-label">Sự thật là</div>
+      <p><strong>Con không lười. Con không hư. Con không kém cỏi.</strong><br>Con chỉ chưa được <strong>đồng hành đúng cách</strong> để thấy hứng thú với nhiệm vụ học hành của mình.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STORY ══ -->
+<section class="story">
+  <div class="container-wide">
+    <div class="story-grid">
+
+      <div class="story-text">
+        <div class="sec-eyebrow" style="color:var(--gold);">Câu chuyện của Hoa</div>
+
+        <p>Hồi con mình học lớp 2, mình đã phạm phải một sai lầm mà đến giờ vẫn day dứt. Con không chịu học, cô giáo nhắn tin thường xuyên vì con thiếu bài, mất tập trung, hay nói chuyện riêng, trêu chọc bạn trong lớp. Ngày nào cũng vậy, đi làm về mệt, tối lại phải ngồi kèm con, nhắc đi nhắc lại mà con cứ lờ đi như không nghe thấy. Cũng như nhiều bà mẹ khác, mình coi đòn roi là cần thiết, bởi <em>"thương cho roi cho vọt"</em> mà.</p>
+
+        <p>Và hôm ấy, khi mãi con không chịu ngồi vào bàn học, cơn giận nổi lên. Tiếng mình quát, tiếng con lí nhí, rồi mình vớ <strong>chiếc mắc áo</strong> vụt vào chân con đầy bực dọc. Con không khóc. Con chỉ nhìn mình bằng ánh mắt không hiểu vì sao mẹ lại như vậy — ánh mắt đó, đến giờ mình vẫn không thể quên. Mình nhận ra một điều rất đau: không phải là mình đang dạy con, mà là mình đang trút giận lên con.</p>
+
+        <p>Mình ôm con vào lòng, cố nén nhưng nước mắt vẫn chảy tràn, và trong đầu chỉ có một câu hỏi cứ lặp đi lặp lại: "Làm thế nào để con vừa thích học, vừa được thoải mái chơi những thứ con thích, mà mẹ không cần quát mắng mỗi ngày?" Mình đi hỏi các chị em đồng nghiệp, lên mạng tìm hiểu, tìm đến các chuyên gia. Rồi một buổi chia sẻ về giáo dục trẻ em đã thay đổi mình — chỉ một tiếng đồng hồ, mình nhận ra mình đang sai ngay từ những câu nói với con mỗi ngày, tưởng áp đặt là tốt nhưng thực chất lại đang kìm hãm tư duy của con.</p>
+
+        <p>Từ đó mình tìm đọc sách tâm lý học đường, nghiên cứu các phương pháp nuôi dạy con tự lập, học từ chuyên gia, và học từ chính những va vấp thực tế với hai đứa con mình. Mình điều chỉnh mình mỗi ngày — không còn quát, thúc ép nữa. Mình hỏi con nhiều hơn, nghe con nói nhiều hơn, và cổ vũ tất cả những gì con làm được dù chỉ là một việc nhỏ xíu. Mình nhận ra dạy con cũng giống như chơi diều — chỉ cần giữ chắc sợi dây yêu thương, còn lại hãy để con được thỏa sức tung bay trong sự yên tâm rằng mẹ luôn ở đó. <strong>THẢ DIỀU</strong> cũng chính là tinh thần mình đã dùng để đồng hành cùng hai con tự học suốt hơn 10 năm qua — và giờ đây, mình đúc kết lại thành <strong>Framework Chiến Thắng Nhỏ™</strong>, để chỉ dẫn lại cho những người mẹ đang <em>Yêu Con Sai Cách</em> giống mình một thời.</p>
+      </div>
+
+      <div>
+        <div class="story-stats">
+          <div class="stat-box">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Năm tự học<br>và thực chiến với 2 con</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">0</div>
+            <div class="stat-label">Ngày học thêm<br>từ mẫu giáo đến lớp 12</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2</div>
+            <div class="stat-label">Con top đầu lớp,<br>tự giác, tự lập</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">~1<span style="font-size:22px">tỷ</span></div>
+            <div class="stat-label">Tiết kiệm học thêm<br>trong 12 năm</div>
+          </div>
+          <div class="teacher-box">
+            <p>Framework <strong>Chiến Thắng Nhỏ™</strong> được đúc kết từ hơn <strong>10 năm thực chiến</strong> cùng 2 đứa con thật — không phải lý thuyết, là trải nghiệm sống, hệ thống lại thành 3 bước: Tách Nhiệm Vụ – Đồng Hành – Trao Quyền.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MOMENT ══ -->
+<section class="moment">
+  <div class="container">
+    <div class="moment-frame">
+      <img src="me-con.png" alt="Minh Hoa và con trai">
+    </div>
+    <p class="moment-caption">Không phải điểm số, không phải ép học, mà là cùng mẹ đọc đúng sách…</p>
+  </div>
+</section>
+
+
+<!-- ══ COMPARE ══ -->
+<section class="compare">
+  <div class="container">
+    <div class="sec-eyebrow" style="color:var(--gold);">Tại sao cách cũ không hiệu quả</div>
+    <h2 style="font-size:clamp(28px,4vw,44px);">Vấn đề không phải ở con.<br><span style="font-style:italic;color:var(--gold2);">Vấn đề ở phương pháp.</span></h2>
+
+    <div class="compare-grid">
+      <div class="compare-col bad">
+        <div class="compare-head">Hiện tại, rất có thể mẹ đang...</div>
+        <div class="compare-item"><span class="ci-icon">✗</span><span>Dành cả buổi tối học cùng con nhưng kết quả vẫn không như mong muốn.</span></div>
+        <div class="compare-item"><span class="ci-icon">✗</span><span>Liên tục tìm giải pháp mới cho con nhưng chưa giải quyết được gốc rễ.</span></div>
+        <div class="compare-item"><span class="ci-icon">✗</span><span>Mỗi lần nhắc học là một lần cả mẹ và con đều căng thẳng.</span></div>
+        <div class="compare-item"><span class="ci-icon">✗</span><span>Lo con ngày càng phụ thuộc vào điện thoại hơn là chủ động học tập.</span></div>
+        <div class="compare-item"><span class="ci-icon">✗</span><span>Thương con, nhưng cũng dần mệt mỏi, cảm thấy bất lực với chính mình.</span></div>
+      </div>
+      <div class="compare-col good">
+        <div class="compare-head">Sau 2 buổi Workshop, mẹ sẽ biết cách...</div>
+        <div class="compare-item"><span class="ci-icon">✓</span><span>Giúp con chủ động ngồi học, không cần thúc ép.</span></div>
+        <div class="compare-item"><span class="ci-icon">✓</span><span>Nuôi dưỡng động lực tìm tòi luyện tập thay vì đi học thêm quá nhiều.</span></div>
+        <div class="compare-item"><span class="ci-icon">✓</span><span>Lắng nghe, trò chuyện giúp con trưởng thành hơn mỗi ngày.</span></div>
+        <div class="compare-item"><span class="ci-icon">✓</span><span>Giúp con biết cân bằng giữa học tập, vui chơi và sử dụng thiết bị số hiệu quả.</span></div>
+        <div class="compare-item"><span class="ci-icon">✓</span><span>Trở thành người đồng hành tin cậy của con thay vì chỉ nhắc nhở.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ WORKSHOP CONTENT ══ -->
+<section class="workshop" id="noi-dung">
+  <div class="container-wide">
+    <div class="workshop-eyebrow">Sau 2 buổi Workshop, mẹ sẽ mang về điều gì</div>
+    <h2 style="color:var(--ink);font-size:clamp(28px,4vw,44px);">Không dạy lý thuyết.<br><span style="font-style:italic;color:var(--rose);">Mẹ học xong, tối đó về thử ngay được.</span></h2>
+
+    <div class="session-wrap">
+
+      <div class="session-card">
+        <div class="session-card-body">
+          <span class="session-tag">Buổi 1 · Tối 04/08</span>
+          <div class="session-title">Mẹ hiểu đúng vấn đề của con</div>
+
+          <div class="session-sublabel">Mẹ sẽ biết</div>
+          <ul class="session-items">
+            <li>Vì sao càng nhắc con càng trì hoãn, càng kiểm soát con càng chống đối.</li>
+            <li>Con đang thiếu kiến thức, cách học hay động lực.</li>
+            <li>Vì sao học nhiều chưa chắc đã hiểu sâu và nhớ lâu.</li>
+            <li>Điều gì mẹ nên tiếp tục và điều gì cần dừng lại.</li>
+          </ul>
+
+          <div class="session-sublabel">Bước đầu tiên: Tách Nhiệm Vụ™</div>
+          <ul class="session-items">
+            <li>Phân biệt rõ việc của mẹ và việc của con.</li>
+            <li>Giảm nhắc nhở, giảm làm thay.</li>
+            <li>Thiết lập nguyên tắc học – chơi – thiết bị.</li>
+            <li>Giúp con bắt đầu chịu trách nhiệm với việc học.</li>
+          </ul>
+        </div>
+        <div class="session-footer">
+          Rời buổi 1, mẹ biết con thực sự cần gì thay vì chỉ nhìn vào điểm số và số lượng bài con đã làm.
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="session-card-body">
+          <span class="session-tag">Buổi 2 · Tối 05/08</span>
+          <div class="session-title">Mẹ có cách làm cụ thể để áp dụng ngay</div>
+
+          <div class="session-sublabel">Bước 2: Đồng Hành™</div>
+          <ul class="session-items">
+            <li>Khen đúng để con có động lực.</li>
+            <li>Góp ý mà không phán xét.</li>
+            <li>Hỏi để con tự suy nghĩ.</li>
+            <li>Giúp con cởi mở và hợp tác hơn.</li>
+          </ul>
+
+          <div class="session-sublabel">Bước 3: Trao Quyền™</div>
+          <ul class="session-items">
+            <li>Cho con lựa chọn trong giới hạn phù hợp.</li>
+            <li>Cùng con xây dựng lịch học và vui chơi.</li>
+            <li>Giúp con theo dõi tiến bộ mỗi ngày.</li>
+            <li>Từng bước để con tự giải quyết vấn đề và chịu trách nhiệm.</li>
+          </ul>
+        </div>
+        <div class="session-footer">
+          Rời buổi 2, mẹ có bộ công cụ dùng ngay tại nhà: Bộ Câu Nói Kết Nối Tức Thì™ · Bộ Quy Tắc Điện Thoại Không Xung Đột™ · 10 câu hỏi vàng kích thích tư duy của con.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIAL ══ -->
+<section class="testi">
+  <div class="container">
+    <div class="sec-eyebrow" style="color:var(--gold);">Kết quả thật · Từ mẹ thật</div>
+    <h2 style="font-size:clamp(26px,4vw,42px);">Không phải số liệu.<br><em style="color:var(--gold2);">Là tin nhắn lúc 9 giờ 57 sáng.</em></h2>
+
+    <div class="testi-card">
+      <img src="testimonial-zalo.jpg" alt="Tin nhắn Zalo của chị E sau khi áp dụng" class="testi-shot">
+      <div class="testi-footer">
+        <p>"Không phải điểm số. Không phải thứ hạng. Là con tự gấp chăn lúc 9 giờ sáng mà không ai nhắc — đó mới là tự giác thật sự."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOR WHO ══ -->
+<section class="forwho">
+  <div class="container">
+    <div class="workshop-eyebrow">Workshop này dành cho ai?</div>
+    <h2 style="color:var(--ink);font-size:clamp(26px,4vw,42px);">Hoa muốn nói thẳng<br><span style="font-style:italic;color:var(--rose);">để chị không mất thời gian.</span></h2>
+
+    <div class="forwho-grid">
+      <div class="fw-card yes">
+        <div class="fw-card-head">✓ Workshop dành cho mẹ nếu...</div>
+        <div class="fw-card-body">
+          <div class="fw-item"><span class="fw-icon">🌱</span><span>Mẹ tin rằng con có thể thay đổi khi người lớn thay đổi cách đồng hành.</span></div>
+          <div class="fw-item"><span class="fw-icon">💛</span><span>Mẹ mong muốn giúp con hình thành trách nhiệm và tính tự giác, thay vì chỉ hoàn thành bài tập.</span></div>
+          <div class="fw-item"><span class="fw-icon">⏱</span><span>Mẹ sẵn sàng dành khoảng 30 phút mỗi ngày để thực hành cùng con sau Workshop.</span></div>
+          <div class="fw-item"><span class="fw-icon">🔄</span><span>Mẹ muốn xây dựng một cách học bền vững thay vì tiếp tục phụ thuộc vào nhắc nhở, thưởng – phạt hay học thêm.</span></div>
+          <div class="fw-item"><span class="fw-icon">✨</span><span>Mẹ hiểu rằng thay đổi của con cần thời gian và sẵn sàng kiên trì với phương pháp.</span></div>
+        </div>
+      </div>
+      <div class="fw-card no">
+        <div class="fw-card-head">✗ Sẽ không phù hợp nếu...</div>
+        <div class="fw-card-body">
+          <div class="fw-item"><span class="fw-icon">⚠️</span><span>Mẹ chỉ muốn một vài mẹo để con nghe lời ngay lập tức.</span></div>
+          <div class="fw-item"><span class="fw-icon">⚠️</span><span>Mẹ mong con thay đổi nhưng không muốn thay đổi cách đồng hành của mình.</span></div>
+          <div class="fw-item"><span class="fw-icon">⚠️</span><span>Mẹ tin rằng càng kiểm soát, càng ép học thì con sẽ càng tiến bộ.</span></div>
+          <div class="fw-item"><span class="fw-icon">⚠️</span><span>Mẹ không có thời gian thực hành cùng con sau Workshop.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ URGENCY ══ -->
+<section class="urgency">
+  <div class="container">
+    <div class="sec-eyebrow" style="color:var(--gold);">Vì sao mẹ nên bắt đầu ngay hôm nay?</div>
+    <h2 style="font-size:clamp(26px,4vw,42px);">Càng để lâu,<br><em style="color:var(--gold2);">càng khó thay đổi.</em></h2>
+
+    <div class="urgency-list">
+      <div class="urgency-item">
+        <div class="urgency-icon">🌱</div>
+        <div>
+          <div class="urgency-title">6–13 tuổi là giai đoạn vàng để hình thành nền tảng học tập và nhân cách.</div>
+          <div class="urgency-desc">Đây là lúc con bắt đầu bước vào hành trình học tập thực sự, dễ tiếp thu, dễ uốn nắn và hình thành tính tự giác, trách nhiệm hơn bất kỳ giai đoạn nào sau này.</div>
+        </div>
+      </div>
+      <div class="urgency-item">
+        <div class="urgency-icon">🌱</div>
+        <div>
+          <div class="urgency-title">Đừng đợi đến tuổi dậy thì mới thay đổi.</div>
+          <div class="urgency-desc">Khi bước vào tuổi dậy thì, con có xu hướng khẳng định cái tôi, muốn tự quyết và dễ phản ứng với sự kiểm soát. Kết nối từ sớm sẽ luôn dễ hơn sửa chữa khi khoảng cách đã hình thành.</div>
+        </div>
+      </div>
+      <div class="urgency-item">
+        <div class="urgency-icon">🌱</div>
+        <div>
+          <div class="urgency-title">Mỗi "chiến thắng nhỏ" hôm nay sẽ trở thành thói quen tốt của ngày mai.</div>
+          <div class="urgency-desc">Càng để lâu, thói quen phụ thuộc, trì hoãn hay chống đối càng khó thay đổi. Điều con lặp lại mỗi ngày hôm nay sẽ dần trở thành cách con học, cách con sống và cách con đối mặt với thử thách trong tương lai.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PRICE ══ -->
+<section class="price" id="dang-ky">
+  <div class="container">
+    <div class="sec-eyebrow" style="color:var(--gold);">Đăng ký tham gia</div>
+    <h2 style="font-size:clamp(26px,4vw,44px);">Bắt đầu từ <em style="color:var(--gold2);">99.000đ</em></h2>
+
+    <div class="price-card">
+      <div class="price-head">
+        <h3>Workshop · Mẹ Đồng Hành Con Tự Học</h3>
+        <p>2 buổi Zoom online · Tối 04, 05 tháng 8</p>
+      </div>
+      <div class="price-body">
+        <div class="price-num">
+          <div class="price-old">Giá thông thường: 299.000đ</div>
+          <div class="price-new">99<span class="price-unit">.000đ</span></div>
+          <div class="price-note-text">Giá ra mắt · Sẽ tăng sau đợt này</div>
+        </div>
+        <ul class="price-includes">
+          <li class="pi-item"><span class="pi-check">✓</span><span>2 buổi Zoom trực tiếp với Minh Hoa (90 phút/buổi)</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>Ghi hình đầy đủ — xem lại không giới hạn</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>Bộ Câu Nói Kết Nối Tức Thì™</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>Bộ Quy Tắc Điện Thoại Không Xung Đột™</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>10 câu hỏi vàng kích thích tư duy của con</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>Group Zalo hỗ trợ sau Workshop</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>Q&amp;A trực tiếp — hỏi tình huống thực tế</span></li>
+        </ul>
+        <a href="#dang-ky" class="btn-price" onclick="openRegModal();return false;">ĐĂNG KÝ NGAY · 99.000đ</a>
+        <div class="guarantee">
+          <span class="guarantee-icon">🛡️</span>
+          <span>Tham gia buổi 1 không thấy giá trị — nhắn Hoa, hoàn tiền 100% không hỏi lý do.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:20px;font-size:13px;color:rgba(255,255,255,0.3);">
+      Sau khi đăng ký, nhắn Zalo để nhận link Zoom<br>
+      <strong style="color:rgba(255,255,255,0.55);">0916.080.464 (Minh Hoa)</strong>
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ FAQ ══ -->
+<section class="faq">
+  <div class="container">
+    <div class="sec-eyebrow" style="color:var(--gold);">Câu hỏi thường gặp</div>
+    <h2 style="font-size:clamp(26px,4vw,42px);">Chị đang thắc mắc<br><em style="color:var(--gold2);">điều gì?</em></h2>
+    <div class="divider" style="margin-top:16px;"></div>
+
+    <div style="margin-top:32px;">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">1</span>Nếu tôi thay đổi cách đồng hành nhưng chồng hoặc ông bà vẫn nuôi dạy con theo cách cũ thì sao?</div>
+        <div class="faq-a">Bạn không cần chờ cả gia đình thay đổi rồi mới bắt đầu. Chỉ cần một người lớn thay đổi cách tương tác với con một cách nhất quán, mối quan hệ và hành vi của con cũng có thể dần thay đổi. Khi thấy kết quả tích cực, những người còn lại thường sẽ cởi mở hơn với cách làm mới.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">2</span>Con tôi từng hứa rất nhiều lần nhưng rồi đâu lại vào đấy. Lần này có gì khác?</div>
+        <div class="faq-a">Chương trình không đặt kỳ vọng vào lời hứa hay động lực nhất thời của con. Thay vào đó, mẹ sẽ học cách tạo môi trường, thói quen và những "chiến thắng nhỏ" để con thay đổi từng bước, thay vì ép con phải thay đổi ngay lập tức.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">3</span>Nếu sau workshop tôi áp dụng mà con chưa thay đổi ngay thì sao?</div>
+        <div class="faq-a">Thay đổi hành vi là một quá trình. Điều mẹ thường thấy đầu tiên không phải là điểm số tăng lên, mà là không khí trong gia đình nhẹ nhàng hơn, con hợp tác hơn và bắt đầu nhận trách nhiệm với những việc nhỏ. Đó chính là nền tảng để những thay đổi lớn dần xuất hiện.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">4</span>Con tôi học không kém, nhưng rất thiếu tự giác. Workshop này có phù hợp không?</div>
+        <div class="faq-a">Rất phù hợp. Chương trình không dành riêng cho những trẻ học yếu, mà dành cho những gia đình muốn con biết tự học, tự chịu trách nhiệm và phát triển nội lực để có thể học tập lâu dài mà không cần người lớn theo sát.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">5</span>Điều gì tạo nên sự khác biệt của workshop này so với những khóa học nuôi dạy con khác?</div>
+        <div class="faq-a">Workshop không chỉ chia sẻ kiến thức hay lý thuyết. Mẹ sẽ được hướng dẫn một lộ trình rõ ràng gồm Tách Nhiệm Vụ – Đồng Hành – Trao Quyền, kèm các công cụ để áp dụng ngay vào chính hoàn cảnh của gia đình mình.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">6</span>Nếu tôi đã từng quát mắng, ép học và làm tổn thương con thì bây giờ có còn kịp không?</div>
+        <div class="faq-a">Có. Trẻ em có khả năng phục hồi rất tốt khi người lớn thật sự thay đổi cách yêu thương và đồng hành. Điều quan trọng không phải là mẹ đã từng làm gì, mà là mẹ bắt đầu thay đổi từ hôm nay. Mỗi thay đổi nhỏ của mẹ đều có thể mở ra một thay đổi tích cực ở con.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">7</span>Nếu tôi áp dụng chưa đúng hoặc gặp khó khăn trong quá trình thực hiện thì sao?</div>
+        <div class="faq-a">Bạn không cần phải làm mọi thứ hoàn hảo ngay từ đầu. Chỉ cần bắt đầu từng bước theo lộ trình của chương trình. Trong quá trình thực hành, bạn sẽ luôn có hướng dẫn và điều chỉnh để biết mình nên tiếp tục, thay đổi hay cải thiện điều gì, thay vì phải tự loay hoay một mình.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">8</span>Chị đã thử nhiều cách rồi, sao workshop này lại khác?</div>
+        <div class="faq-a">Vì đây không chỉ là kiến thức hay lý thuyết. Đây là phương pháp Hoa đã thực hành hơn 10 năm cùng chính hai con của mình và tiếp tục đồng hành với nhiều gia đình khác. Mọi nội dung trong workshop đều có thể áp dụng ngay vào thực tế. Nếu sau buổi đầu tiên chị cảm thấy workshop không mang lại giá trị như cam kết, Hoa sẽ hoàn lại 100% học phí.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">9</span>Tôi đã đăng ký nhưng bận, không xem trực tiếp được thì sao?</div>
+        <div class="faq-a">Không sao. Toàn bộ 2 buổi workshop đều được ghi hình và gửi vào nhóm Zalo sau mỗi buổi. Chị có thể xem lại bất cứ lúc nào và xem bao nhiêu lần cũng được, miễn là phù hợp với lịch của mình.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">10</span>Nếu con tôi không thay đổi thì sao?</div>
+        <div class="faq-a">Workshop không hứa con sẽ thay đổi chỉ sau vài ngày. Điều Hoa cam kết là giúp mẹ biết vì sao con chưa hợp tác, nên thay đổi điều gì trước, và cách áp dụng lộ trình 3 bước Tách Nhiệm Vụ – Đồng Hành – Trao Quyền để con từng bước thay đổi một cách bền vững.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MEET ══ -->
+<section class="meet">
+  <div class="container-wide">
+    <div class="meet-grid">
+
+      <div class="meet-img-wrap">
+        <img src="chan-dung.jpg" alt="Chị Minh Hoa — người đồng hành tin cậy">
+      </div>
+
+      <div class="meet-text">
+        <div class="sec-eyebrow" style="color:var(--gold);">Người đồng hành</div>
+        <div class="meet-name">Minh Hoa</div>
+        <div class="meet-role">Làm Bạn Cùng Con · Đồng Hành Cùng Con Tự Học</div>
+
+        <p>Mình không phải chuyên gia tâm lý. Không phải giáo viên. Mình chỉ là một người mẹ đã đi qua con đường này — mắc đủ sai lầm, rút ra đủ bài học, và tìm được cách.</p>
+
+        <p>Mình chia sẻ đúng những gì mình đã làm thật. Không lý thuyết, không sách vở. <em>Đó là thứ mình tự hào nhất.</em></p>
+
+        <ul class="meet-facts">
+          <li class="meet-fact"><span class="mf-dot"></span><span>Nuôi 2 con tự học từ mẫu giáo đến lớp 12 — không học thêm, top đầu lớp</span></li>
+          <li class="meet-fact"><span class="mf-dot"></span><span>Tiết kiệm được ~1 tỷ đồng học thêm trong suốt 12 năm mà con vẫn giỏi đều các môn</span></li>
+          <li class="meet-fact"><span class="mf-dot"></span><span>10 năm++ tự học hỏi và thực chiến với 2 đứa con</span></li>
+          <li class="meet-fact"><span class="mf-dot"></span><span>Gia đình không còn tiếng quát mắng — về đến nhà là tiếng cười rộn ràng</span></li>
+        </ul>
+
+        <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.08);">
+          <a href="#dang-ky" class="btn-cta" onclick="openRegModal();return false;">THAM GIA WORKSHOP · 99.000đ</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final">
+  <h2>Mẹ ơi — con không hư.<br><em>Con chỉ chưa được hiểu đúng.</em></h2>
+  <p>99.000đ và 2 buổi tối. Đủ để bắt đầu thay đổi mối quan hệ với con và không khí trong gia đình.</p>
+  <a href="#dang-ky" class="btn-cta" onclick="openRegModal();return false;">ĐĂNG KÝ NGAY</a>
+  <div class="final-sub">Hoàn tiền 100% nếu không thấy giá trị sau buổi 1</div>
+</section>
+
+
+<!-- ══ STICKY ══ -->
+<div class="sticky">
+  <p><strong>Workshop Mẹ Đồng Hành Con Tự Học</strong> · 04 &amp; 05/08 · Zoom online</p>
+  <a href="#dang-ky" class="btn-sticky" onclick="openRegModal();return false;">Đăng ký · 99.000đ</a>
+</div>
+<div style="height:60px;"></div>
+
+
+<!-- ══ REGISTRATION MODAL ══ -->
+<div class="modal-overlay" id="regModalOverlay">
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeRegModal()" aria-label="Đóng">×</button>
+
+    <div class="modal-form" id="regFormWrap">
+      <h3 class="modal-title">Nhập thông tin của bạn</h3>
+      <p class="modal-sub">Workshop tối 04 &amp; 05/08 · Chỉ 99.000đ · Giữ 1 trong số chỗ còn lại</p>
+      <form id="regForm">
+        <input class="modal-field" type="text" name="name" placeholder="Tên của bạn" required>
+        <input class="modal-field" type="email" name="email" placeholder="Email của bạn">
+        <input class="modal-field" type="tel" name="phone" placeholder="Số điện thoại (có Zalo)" required>
+        <button type="submit" class="btn-modal" id="regSubmitBtn">ĐĂNG KÝ GIỮ CHỖ · 99.000đ</button>
+      </form>
+      <p class="modal-guarantee">Hoàn tiền 100% nếu không thấy giá trị sau Buổi 1</p>
+    </div>
+
+    <div class="modal-pay" id="regPay">
+      <h3 class="modal-title" style="margin-bottom:6px;">Quét mã để chuyển khoản</h3>
+      <p class="modal-sub" style="margin-top:0;">Hệ thống tự động xác nhận trong khoảng 30 giây sau khi chuyển khoản</p>
+
+      <div class="pay-qr-wrap">
+        <img id="payQr" alt="Mã QR chuyển khoản" class="pay-qr-img">
+      </div>
+
+      <div class="pay-info">
+        <div class="pay-info-row"><span>Ngân hàng</span><strong>VPBank</strong></div>
+        <div class="pay-info-row"><span>Số tài khoản</span><strong>AGBSPMH6868</strong></div>
+        <div class="pay-info-row"><span>Chủ tài khoản</span><strong>NGUYEN THI MINH HOA</strong></div>
+        <div class="pay-info-row"><span>Nội dung CK</span><strong id="payCkContent">—</strong></div>
+        <div class="pay-info-row"><span>Số tiền</span><strong>99.000đ</strong></div>
+      </div>
+
+      <div class="pay-status pending" id="payStatusBox">
+        <span class="pay-pulse"></span><span id="payStatusText">Đang chờ giao dịch...</span>
+      </div>
+    </div>
+
+    <div class="modal-success" id="regSuccess">
+      <h3 class="modal-title">Đã nhận thanh toán — cảm ơn mẹ!</h3>
+      <p>Chỗ của mẹ trong Workshop đã được giữ.<br>Bấm nút bên dưới để vào nhóm Zalo — Hoa sẽ gửi link Zoom trước buổi học.</p>
+      <a href="https://zalo.me/g/1jz6mpi1l7w47hygd44m" class="btn-modal-zalo" target="_blank" rel="noopener">Vào nhóm Zalo</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  var GAS_URL = "https://script.google.com/macros/s/AKfycbwyYGvTGqDVq7x4L-HezC6mvTXJYYsvdth3wOCgfbk-txSgL0qyaUBNhdPvz1hQO7cf/exec";
+  var currentOrderId = null;
+  var pollTimer = null;
+
+  function openRegModal(){
+    document.getElementById('regModalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeRegModal(){
+    document.getElementById('regModalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('regModalOverlay').addEventListener('click', function(e){
+    if (e.target === this) closeRegModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeRegModal();
+  });
+
+  function formatVnd(n){ return Number(n).toLocaleString('en-US').replace(/,/g, '.'); }
+
+  document.getElementById('regForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = document.getElementById('regSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'ĐANG XỬ LÝ...';
+
+    var payload = {
+      action: 'createOrder',
+      data: {
+        name: this.name.value.trim(),
+        email: this.email.value.trim(),
+        phone: this.phone.value.trim()
+      }
+    };
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    })
+      .then(function(res){ return res.json(); })
+      .then(function(json){
+        if (!json.success) throw new Error(json.error || 'Không tạo được đơn');
+        currentOrderId = json.orderId;
+        document.getElementById('payCkContent').textContent = json.ckContent;
+        document.getElementById('payQr').src =
+          'https://qr.sepay.vn/img?acc=AGBSPMH6868&bank=VPBank&amount=' + json.amount +
+          '&des=' + encodeURIComponent(json.ckContent) + '&template=compact';
+
+        document.getElementById('regFormWrap').classList.add('hidden');
+        document.getElementById('regPay').classList.add('active');
+        pollStatus();
+      })
+      .catch(function(err){
+        alert('Có lỗi khi tạo đơn đăng ký, vui lòng thử lại: ' + err.message);
+        btn.disabled = false;
+        btn.textContent = 'ĐĂNG KÝ GIỮ CHỖ · 99.000đ';
+      });
+  });
+
+  function pollStatus(){
+    if (!currentOrderId) return;
+    fetch(GAS_URL + '?action=getStatus&orderId=' + encodeURIComponent(currentOrderId))
+      .then(function(res){ return res.json(); })
+      .then(function(json){
+        if (json.success && json.status === 'PAID') {
+          document.getElementById('payStatusBox').className = 'pay-status paid';
+          document.getElementById('payStatusText').textContent = '✓ Đã nhận thanh toán — đang chuyển tiếp...';
+          setTimeout(function(){
+            document.getElementById('regPay').classList.remove('active');
+            document.getElementById('regSuccess').classList.add('active');
+          }, 1200);
+          return;
+        }
+        pollTimer = setTimeout(pollStatus, 5000);
+      })
+      .catch(function(){
+        pollTimer = setTimeout(pollStatus, 5000);
+      });
+  }
+</script>
+
+</body>
+</html>
