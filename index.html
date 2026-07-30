@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Workshop: Kiến Tạo Thói Quen Tự Học Cho Con | Minh Hoa</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2272912586780692');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2272912586780692&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
 :root {
   --cream:      #FFFBF3;
@@ -930,6 +947,13 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
   function openRegModal(){
     document.getElementById('regModalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: 'Workshop Kien Tao Thoi Quen Tu Hoc',
+        currency: 'VND',
+        value: 99000
+      });
+    }
   }
   function closeRegModal(){
     document.getElementById('regModalOverlay').classList.remove('active');
@@ -974,6 +998,13 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
         document.getElementById('regFormWrap').classList.add('hidden');
         document.getElementById('regPay').classList.add('active');
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout', {
+            content_name: 'Workshop Kien Tao Thoi Quen Tu Hoc',
+            currency: 'VND',
+            value: json.amount
+          });
+        }
         pollStatus();
       })
       .catch(function(err){
@@ -991,6 +1022,13 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
         if (json.success && json.status === 'PAID') {
           document.getElementById('payStatusBox').className = 'pay-status paid';
           document.getElementById('payStatusText').textContent = '✓ Đã nhận thanh toán — đang chuyển tiếp...';
+          if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', {
+              content_name: 'Workshop Kien Tao Thoi Quen Tu Hoc',
+              currency: 'VND',
+              value: 99000
+            });
+          }
           setTimeout(function(){
             document.getElementById('regPay').classList.remove('active');
             document.getElementById('regSuccess').classList.add('active');
