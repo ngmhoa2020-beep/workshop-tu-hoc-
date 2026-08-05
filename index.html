@@ -82,10 +82,10 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
   text-align:center;
 }
 .hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:9px;
   background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);
-  color:rgba(255,255,255,0.88);font-size:11.5px;font-weight:700;letter-spacing:1px;
-  padding:7px 16px;border-radius:40px;margin-bottom:24px;width:fit-content;
+  color:rgba(255,255,255,0.9);font-size:clamp(12px,2.4vw,15px);font-weight:700;letter-spacing:0.6px;
+  padding:9px 18px;border-radius:40px;margin-bottom:24px;width:fit-content;line-height:1.4;
 }
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--mustard);flex-shrink:0;}
 .hero h1{
@@ -116,6 +116,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
   width:360px;max-width:80vw;aspect-ratio:4/3;margin:0 auto;border-radius:20px;overflow:hidden;
   border:4px solid rgba(255,255,255,0.18);box-shadow:0 20px 50px rgba(0,0,0,0.35);
 }
+@media(min-width:820px){.hero-photo-small{width:480px;}}
 .hero-photo-small img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
 
 /* ── PAIN ── */
@@ -166,6 +167,20 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
   font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(19px,2.6vw,25px);
   color:var(--white);line-height:1.5;margin:0;
 }
+
+.story-title{
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(22px,3vw,30px);
+  color:var(--ink);margin-bottom:22px;
+}
+.story-shift{margin:16px 0 24px;display:flex;flex-direction:column;gap:10px;}
+.story-shift-item{
+  display:flex;align-items:center;gap:12px;background:var(--cream2);border:1px solid var(--border);
+  border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.55;
+}
+.ss-from{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(107,92,74,0.4);flex-shrink:0;}
+.ss-arrow{color:var(--coral-dark);font-weight:700;flex-shrink:0;}
+.ss-to{color:var(--teal-dark);font-weight:600;}
+@media(max-width:520px){.story-shift-item{flex-wrap:wrap;}}
 
 .story-moment{margin:32px 0 20px;}
 .story-moment-frame{border-radius:16px;overflow:hidden;box-shadow:0 16px 40px rgba(42,33,24,0.14);}
@@ -232,6 +247,9 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 .session-footer{
   padding:22px 28px;font-size:14.5px;font-weight:600;line-height:1.65;color:var(--white);
 }
+.session-footer ul{list-style:none;}
+.session-footer ul li{position:relative;padding:3px 0 3px 20px;}
+.session-footer ul li::before{content:'✓';position:absolute;left:0;opacity:0.85;}
 .session-footer-label{
   display:block;font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
   margin-bottom:7px;opacity:0.85;
@@ -349,6 +367,19 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
 .faq-a p{font-size:14.5px;color:var(--muted);line-height:1.75;padding:0 22px 20px;}
 .faq-item.open .faq-a{max-height:400px;}
+
+/* ── SESSION ACCORDION (reuses faq-item/faq-q/faq-a/toggleFaq) ── */
+.session-acc{background:transparent;border:none;border-radius:0;margin-bottom:0;border-bottom:1px solid rgba(0,0,0,0.08);}
+.session-acc:last-child{border-bottom:none;}
+.session-acc .faq-q{padding:12px 0;gap:14px;font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:14px;color:var(--ink);}
+.session-acc .faq-q strong{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-bottom:3px;}
+.session-card.c1 .session-acc .faq-q strong{color:var(--teal-dark);}
+.session-card.c2 .session-acc .faq-q strong{color:var(--mustard-dark);}
+.session-acc .faq-toggle{width:22px;height:22px;font-size:15px;background:rgba(0,0,0,0.06);color:var(--ink);}
+.session-acc.open .faq-toggle{transform:rotate(45deg);}
+.session-card.c1 .session-acc.open .faq-toggle{background:var(--teal);color:var(--white);}
+.session-card.c2 .session-acc.open .faq-toggle{background:var(--mustard-dark);color:var(--white);}
+.session-acc .faq-a p{padding:0 0 14px;font-size:13.5px;color:var(--muted);line-height:1.65;}
 
 /* ── MEET ── */
 .meet{background:var(--white);padding:88px 0;}
@@ -495,13 +526,13 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Workshop Online 2 Buổi · Dành Cho Mẹ Có Con 6–13 Tuổi
+      Workshop 2 Buổi Zoom · Dành Cho Mẹ Có Con 6–13 Tuổi Ngại Học
     </div>
 
-    <h1>Cách <em>Dễ Dàng Nhất</em> Để Mẹ Đưa Con Từ Lười Học, Mê Điện Thoại Đến <span class="hl">Tự Giác</span><br>Không Quát, Không Ép, Không Tốn Tiền Học Thêm</h1>
+    <h1>Cách <em>Dễ Dàng Nhất</em> Để Mẹ Giúp Con <span class="hl">Tự Giác</span> và <span class="hl">Chủ Động</span> Học Tập</h1>
 
     <p class="hero-sub">
-      Khám phá toàn bộ <span class="hero-sub-hl">Quy Trình 3 Bước</span> mà Hoa đã đúc kết từ hơn 10 năm đồng hành cùng 2 con — ngay cả khi mẹ bận rộn hoặc không giỏi kèm con học.
+      Khám phá toàn bộ <span class="hero-sub-hl">Quy Trình 5G</span> được Hoa đúc kết sau hơn 10 năm đồng hành giúp 2 con vững vàng trong học tập — ngay cả khi mẹ rất bận rộn hoặc không giỏi kèm con học.
     </p>
 
     <div class="theme-strip">
@@ -533,11 +564,11 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
     <ul class="pain-list">
       <li class="pain-item">
         <span class="pain-num">01</span>
-        <span>Mẹ đi làm cả ngày, tối về lại tất bật kèm con học. Nhắc đến khàn cả giọng mà con vẫn lơ đãng, mở sách ra nhưng tâm hồn còn ở game, ở lego đang xếp dở…</span>
+        <span>Mẹ đi làm cả ngày, tối về lại tất bật kèm con học. Nhắc đến khàn cả giọng mà con vẫn lơ đãng, mở sách ra nhưng tâm hồn còn ở game, ở lego đang chơi dở…</span>
       </li>
       <li class="pain-item">
         <span class="pain-num">02</span>
-        <span>Cô giáo nhắn tin đều đặn: con thiếu bài, con mất tập trung, con chưa có ý thức học, con trêu chọc bạn… Mẹ lo lắng.</span>
+        <span>Cô giáo nhắn tin đều đặn: con thiếu bài, con mất trật tự, con chưa có ý thức học,… Mẹ lo lắng.</span>
       </li>
       <li class="pain-item">
         <span class="pain-num">03</span>
@@ -549,13 +580,13 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
       </li>
       <li class="pain-item">
         <span class="pain-num">05</span>
-        <span>Mẹ quát mắng, đòn roi với con xong lại ân hận. Nhủ thầm sẽ kiềm chế nhưng rồi vài hôm sau lại lặp lại, không khí gia đình nặng nề theo.</span>
+        <span>Mẹ quát mắng, đòn roi với con xong lại ân hận. Nhủ thầm sẽ kiềm chế nhưng rồi vài hôm sau lại lặp lại, không khí gia đình nặng nề.</span>
       </li>
     </ul>
 
     <div class="truth-block">
       <div class="truth-label">Sự thật là</div>
-      <p><strong>Con không lười. Con không hư. Con không kém cỏi.</strong><br>Con chỉ chưa được đồng hành đúng cách để thấy hứng thú với nhiệm vụ học hành của mình.</p>
+      <p><strong>Con không lười. Con không hư. Con không kém.</strong><br>Con chỉ chưa được đồng hành đúng cách để thấy hứng thú với nhiệm vụ học hành.</p>
     </div>
   </div>
 </section>
@@ -565,19 +596,19 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 <section class="story">
   <div class="container">
     <div class="sec-eyebrow">Câu chuyện của Hoa</div>
+    <h3 class="story-title">Hành Trình Đồng Hành Cùng Con Tự Học</h3>
 
     <div class="story-frame">
       <div class="story-scrollbox">
         <div class="story-text">
           <p>Hồi con mình học lớp 2, mình đã phạm phải một sai lầm mà đến giờ vẫn day dứt.</p>
-          <p>Con không chịu học, cô giáo nhắn tin thường xuyên vì con thiếu bài, hay nói chuyện riêng, trêu chọc bạn trong lớp.</p>
-          <p>Ngày nào cũng vậy, đi làm về mệt, tối lại phải ngồi kèm con, nhắc đi nhắc lại mà con cứ lờ đi như không nghe thấy.</p>
-          <p>Cũng như nhiều bà mẹ khác, mình coi đòn roi là cần thiết, bởi <em>"thương cho roi cho vọt"</em> mà.</p>
+          <p>Con không chịu học, cô giáo nhắn tin thường xuyên vì con thiếu bài, hay nói chuyện riêng, trêu chọc bạn...</p>
+          <p>Cũng giống các mẹ, <em>"thương cho roi cho vọt"</em> nên mình coi đòn roi là cần thiết.</p>
 
-          <p>Và hôm ấy, khi mãi con không chịu ngồi vào bàn học, cơn giận nổi lên.</p>
-          <p>Tiếng mình quát, tiếng con lí nhí, rồi mình vớ <strong>chiếc mắc áo</strong> vụt vào chân con đầy bực dọc.</p>
-          <p>Con không khóc. Con chỉ nhìn mình bằng ánh mắt không hiểu vì sao mẹ lại như vậy — ánh mắt đó, đến giờ mình vẫn không thể quên.</p>
-          <p>Mình nhận ra một điều rất đau: không phải là mình đang dạy con, mà là mình đang trút giận lên con!</p>
+          <p>Hôm ấy, giục mãi con không chịu ngồi vào bàn học. Cơn giận nổi lên.</p>
+          <p>Tiếng mình quát, tiếng con lí nhí,... rồi mình vớ <strong>Chiếc Mắc Áo</strong> vụt vào chân con đầy bực dọc.</p>
+          <p>Con không khóc. Con chỉ nhìn mình bằng ánh mắt không hiểu vì sao nay mẹ dữ vậy — ánh mắt đó, đến giờ mình vẫn không thể quên.</p>
+          <p>Mình nhói đau, nhận ra mình đang trút giận lên con chứ không phải đang dạy con.</p>
 
           <p>Mình ôm con vào lòng, cố nén nhưng nước mắt vẫn chảy tràn, và trong đầu chỉ có một câu hỏi cứ lặp đi lặp lại:</p>
         </div>
@@ -588,10 +619,10 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
         <div class="story-text">
           <p>Mình đi hỏi các chị em đồng nghiệp, lên mạng tìm hiểu, tìm đến các chuyên gia.</p>
-          <p>Rồi một buổi chia sẻ về giáo dục trẻ em đã thay đổi mình — chỉ một tiếng đồng hồ, mình nhận ra: mình đang sai ngay từ những câu nói với con mỗi ngày, tưởng cứ ép là vào khuôn khổ nhưng thực chất lại đang kìm hãm tư duy của con.</p>
+          <p>Rồi một buổi chia sẻ về giáo dục trẻ em đã thay đổi mình — chỉ một tiếng đồng hồ, mình vỡ ra: mình đang sai ngay từ những câu nói với con mỗi ngày. Tưởng cứ ép là vào khuôn khổ nhưng thực chất lại đang kìm hãm tư duy của con.</p>
 
           <p>Từ đó mình tìm đọc sách tâm lý học đường, nghiên cứu các phương pháp nuôi dạy con tự lập, học từ chuyên gia, và học từ chính những va vấp thực tế với hai đứa con mình.</p>
-          <p>Mình điều chỉnh mình mỗi ngày. Mình không còn quát, thúc ép nữa.</p>
+          <p>Mình điều chỉnh mình mỗi ngày. Mình không còn quát, thúc, ép nữa.</p>
           <p>Mình hỏi con nhiều hơn, nghe con nói nhiều hơn, và cổ vũ tất cả những gì con làm được dù chỉ là một việc nhỏ xíu. Mình nhận ra:</p>
         </div>
 
@@ -601,14 +632,21 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
         <div class="story-text">
           <p><strong>THẢ DIỀU</strong> cũng chính là tinh thần mình đã dùng để đồng hành cùng hai con tự học suốt hơn 10 năm qua.</p>
-          <p>Và giờ đây, mình đúc kết lại thành <strong>Framework Chiến Thắng Nhỏ™</strong>, chia sẻ với mong muốn các mẹ ứng dụng để không bị <em>Yêu Con Sai Cách</em> giống mình một thời.</p>
+          <p>Và giờ đây, mình đúc kết lại thành <strong>Quy trình 5G: Gắn kết – Gợi mở – Giao quyền – Ghi nhận – Gần gũi cuộc sống</strong>, là kim chỉ nam để <strong>Mẹ Đồng Hành, Con Tự Học</strong>.</p>
+          <p>Và không cần phải là 10 năm, không cần nghiền ngẫm hàng chục cuốn sách,... Các mẹ chỉ cần dành khoảng 4 tiếng cho 2 buổi tối online để nhận về quy trình áp dụng được ngay, dần giúp con từ:</p>
+        </div>
+
+        <div class="story-shift">
+          <div class="story-shift-item"><span class="ss-from">Mải chơi</span><span class="ss-arrow">→</span><span class="ss-to">Chủ động học, thích học, muốn học và tự học</span></div>
+          <div class="story-shift-item"><span class="ss-from">Nghiện màn hình tivi, điện thoại</span><span class="ss-arrow">→</span><span class="ss-to">Xem có chọn lọc, ứng dụng vào bài học</span></div>
+          <div class="story-shift-item"><span class="ss-from">Né mẹ, giấu diếm mẹ</span><span class="ss-arrow">→</span><span class="ss-to">Tin tưởng, đồng cảm với mẹ, sẵn sàng kể chuyện trường, chuyện lớp, chuyện bạn bè,… kể cả chuyện rung động tình cảm khác giới</span></div>
         </div>
 
         <div class="story-moment">
           <div class="story-moment-frame">
             <img src="me-con.png" alt="Minh Hoa và con trai">
           </div>
-          <p class="story-moment-caption">Không phải điểm số, không phải ép học, mà là cùng mẹ đọc đúng sách…</p>
+          <p class="story-moment-caption">Không phải điểm số, không phải ép học, mà là cùng mẹ mở rộng tri thức</p>
         </div>
       </div>
       <p class="story-hint">— Cuộn để đọc trọn câu chuyện —</p>
@@ -620,7 +658,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 <!-- ══ COMPARE ══ -->
 <section class="compare">
   <div class="container">
-    <div class="sec-eyebrow">Tại sao cách cũ không hiệu quả</div>
+    <div class="sec-eyebrow">Tại sao cách cũ không hiệu quả?</div>
     <h2 style="font-size:clamp(26px,4vw,40px);">Vấn đề không phải ở con.<br><em style="color:var(--coral-dark);">Vấn đề ở phương pháp.</em></h2>
 
     <div class="compare-grid">
@@ -655,55 +693,77 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
       <div class="session-card c1">
         <div class="session-card-body">
-          <span class="session-tag">Buổi 1 · Tối 15/08</span>
+          <span class="session-tag">Buổi 1 · Tối 18/08</span>
           <div class="session-title">Buổi 1 giúp mẹ hiểu đúng vấn đề của con</div>
 
           <div class="session-sublabel">Mẹ sẽ biết</div>
           <ul class="session-items">
-            <li>Vì sao càng nhắc con càng trì hoãn, càng kiểm soát con càng chống đối.</li>
-            <li>Con đang thiếu kiến thức, cách học hay động lực.</li>
-            <li>Vì sao học nhiều chưa chắc đã hiểu sâu và nhớ lâu.</li>
-            <li>Điều gì mẹ nên tiếp tục và điều gì cần dừng lại.</li>
-          </ul>
-
-          <div class="session-sublabel">Bước đầu tiên: Tách Nhiệm Vụ™</div>
-          <ul class="session-items">
-            <li>Phân biệt rõ việc của mẹ và việc của con.</li>
-            <li>Giảm nhắc nhở, giảm làm thay.</li>
-            <li>Thiết lập nguyên tắc học – chơi – thiết bị.</li>
-            <li>Giúp con bắt đầu chịu trách nhiệm với việc học.</li>
+            <li>Ngôn Từ Của Mẹ sẽ quyết định Sự Thông Minh của con.</li>
+            <li>Vì sao càng nhắc con càng trì hoãn, càng kiểm soát con càng chống đối?</li>
+            <li>Con đang thiếu kiến thức, thiếu phương pháp hay thiếu động lực học?</li>
+            <li>Vì sao cho con đi học nhiều mà kết quả học tập vẫn lẹt đẹt — phải chăng con không có khả năng?</li>
+            <li>Điều gì mẹ nên tiếp tục, điều gì mẹ cần dừng lại.</li>
           </ul>
         </div>
         <div class="session-footer">
           <span class="session-footer-label">Kết quả thu nhận sau buổi Zoom 1</span>
-          Mẹ biết chính xác con thực sự cần gì — thay vì chỉ nhìn vào điểm số và số lượng bài con đã làm.
+          Rời buổi 1, mẹ nhận ra con đang cần gì, và điều thực sự khiến con giỏi giang lại không phải là điểm số cao như chúng ta vẫn thường hướng tới.
         </div>
       </div>
 
       <div class="session-card c2">
         <div class="session-card-body">
-          <span class="session-tag">Buổi 2 · Tối 16/08</span>
-          <div class="session-title">Từng bước cụ thể giúp mẹ Kiến Tạo Thói Quen Tự Học cho con</div>
+          <span class="session-tag">Buổi 2 · Tối 19/08</span>
+          <div class="session-title">Hệ Thống 5G — từng bước cụ thể giúp mẹ Kiến Tạo Thói Quen Tự Học cho con</div>
 
-          <div class="session-sublabel">1. Đồng Hành™</div>
-          <ul class="session-items">
-            <li>Khen đúng để con có động lực.</li>
-            <li>Góp ý mà không phán xét.</li>
-            <li>Hỏi để con tự suy nghĩ.</li>
-            <li>Giúp con cởi mở và hợp tác hơn.</li>
-          </ul>
+          <div class="session-acc faq-item">
+            <button class="faq-q" type="button" onclick="toggleFaq(this)">
+              <span><strong>1. Gắn kết</strong>Cách giao tiếp với con, kết nối cảm xúc, xây dựng niềm tin.</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a"><p>Con sẵn sàng hợp tác khi cảm thấy được yêu thương, tôn trọng và lắng nghe — trẻ không học tốt từ người khiến mình sợ, mà học tốt từ người khiến mình cảm thấy an toàn.</p></div>
+          </div>
 
-          <div class="session-sublabel">2. Trao Quyền™</div>
-          <ul class="session-items">
-            <li>Cho con lựa chọn trong giới hạn phù hợp.</li>
-            <li>Cùng con xây dựng lịch học và vui chơi.</li>
-            <li>Giúp con theo dõi tiến bộ mỗi ngày.</li>
-            <li>Từng bước để con tự giải quyết vấn đề và chịu trách nhiệm.</li>
-          </ul>
+          <div class="session-acc faq-item">
+            <button class="faq-q" type="button" onclick="toggleFaq(this)">
+              <span><strong>2. Gợi mở</strong>Nghệ thuật đặt câu hỏi, kích thích tư duy, khơi gợi khám phá.</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a"><p>Thay vì nói cho con biết mọi thứ, mẹ đặt câu hỏi, tạo tình huống và để con muốn đi tìm câu trả lời — sự tò mò là động cơ học tập mạnh mẽ nhất của trẻ.</p></div>
+          </div>
+
+          <div class="session-acc faq-item">
+            <button class="faq-q" type="button" onclick="toggleFaq(this)">
+              <span><strong>3. Giao quyền</strong>Trao cơ hội lựa chọn và chịu trách nhiệm.</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a"><p>Cho con quyền quyết định trong những giới hạn phù hợp: học môn nào trước, học bao lâu, nghỉ lúc nào... Khi được lựa chọn, con cảm thấy việc học là của mình, không phải của mẹ.</p></div>
+          </div>
+
+          <div class="session-acc faq-item">
+            <button class="faq-q" type="button" onclick="toggleFaq(this)">
+              <span><strong>4. Ghi nhận</strong>Nhận diện sự tiến bộ, khen đúng, nuôi dưỡng tư duy.</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a"><p>Ghi nhận sự cố gắng, sự kiên trì, những bước tiến nhỏ của con — điều được ghi nhận sẽ tiếp tục phát triển, và điểm số tốt là hệ quả tất yếu.</p></div>
+          </div>
+
+          <div class="session-acc faq-item">
+            <button class="faq-q" type="button" onclick="toggleFaq(this)">
+              <span><strong>5. Gắn cuộc sống</strong>Biến kiến thức thành trải nghiệm và ứng dụng thực tế.</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-a"><p>Giúp con thấy: Toán để tính tiền, Tiếng Việt để giao tiếp hàng ngày, Tiếng Anh để hiểu thêm về thế giới, Internet để học hỏi và sáng tạo chứ không chỉ để giải trí — khi nhận ra kiến thức có ích trong cuộc sống, con học vì thấy có ý nghĩa.</p></div>
+          </div>
         </div>
         <div class="session-footer">
           <span class="session-footer-label">Kết quả thu nhận sau buổi Zoom 2</span>
-          Mẹ có ngay bộ công cụ dùng được tại nhà: Bộ Câu Nói Kết Nối Tức Thì™ · Bộ Quy Tắc Điện Thoại Không Xung Đột™ · 10 câu hỏi vàng kích thích tư duy của con.
+          <p style="margin:0 0 10px;">Rời buổi 2, mẹ hiểu từng bước kết nối và có bộ công cụ ứng dụng với con dễ dàng:</p>
+          <ul style="margin:0;padding-left:20px;">
+            <li>Bộ Câu Nói Kết Nối Tức Thì™</li>
+            <li>Bộ Quy Tắc Điện Thoại Không Xung Đột™</li>
+            <li>10 câu hỏi vàng kích thích tư duy của con.</li>
+          </ul>
         </div>
       </div>
 
@@ -751,7 +811,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
       <p>Điều con lặp lại hôm nay sẽ dần trở thành cách con học, cách con sống và cách con đối mặt với thử thách trong tương lai.</p>
       <div class="urgency-callout">
         <span class="urgency-callout-mark">"</span>
-        <p>Giai đoạn 6–13 tuổi — con vừa bắt đầu làm quen với kiến thức, cần được chỉ dẫn đúng để <strong>học mà chơi, chơi mà học</strong>, tạo nên những Chiến Thắng Nhỏ mỗi ngày, thay vì bị gò ép sớm tối.</p>
+        <p>Giai đoạn 6–13 tuổi — con vừa bắt đầu làm quen với kiến thức, cần được chỉ dẫn đúng để <strong>học mà chơi, chơi mà học</strong>, tạo nên nhiều Chiến Thắng Nhỏ. Con cảm nhận "mình đang lớn" trong hành trình học tập.</p>
       </div>
       <div class="urgency-photo">
         <img src="testimonial-zalo.jpg" alt="Phản hồi thực tế từ phụ huynh trên Zalo">
@@ -771,10 +831,11 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
     <div class="price-card">
       <div class="price-head">
         <h3>Workshop · Mẹ Đồng Hành Con Tự Học</h3>
-        <p>2 buổi Zoom online · Tối 15, 16 tháng 8</p>
+        <p>2 buổi Zoom online · 20:00 - 18 &amp; 19/08/2026</p>
       </div>
       <div class="price-body">
         <div class="price-num">
+          <div class="price-old">Giá thông thường: 299.000đ</div>
           <div class="price-new">99<span class="price-unit">.000đ</span></div>
           <div class="price-note-text">Giá ra mắt · Sẽ tăng sau đợt này</div>
         </div>
@@ -784,8 +845,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
           <li class="pi-item"><span class="pi-check">✓</span><span>Bộ Câu Nói Kết Nối Tức Thì™</span></li>
           <li class="pi-item"><span class="pi-check">✓</span><span>Bộ Quy Tắc Điện Thoại Không Xung Đột™</span></li>
           <li class="pi-item"><span class="pi-check">✓</span><span>10 câu hỏi vàng kích thích tư duy của con</span></li>
-          <li class="pi-item"><span class="pi-check">✓</span><span>Group Zalo hỗ trợ sau Workshop</span></li>
-          <li class="pi-item"><span class="pi-check">✓</span><span>Q&amp;A trực tiếp — hỏi tình huống thực tế</span></li>
+          <li class="pi-item"><span class="pi-check">✓</span><span>Group Zalo hỗ trợ sau Workshop, hỏi đáp tình huống thực tế</span></li>
         </ul>
         <a href="#dang-ky" class="btn-price" onclick="openRegModal();return false;">ĐĂNG KÝ NGAY · 99.000đ</a>
         <div class="email-note">
@@ -814,20 +874,20 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
         <div class="faq-a"><p>Chương trình không đặt kỳ vọng vào lời hứa hay động lực nhất thời của con. Thay vào đó, mẹ sẽ học cách tạo môi trường, thói quen và những "chiến thắng nhỏ" để con thay đổi từng bước.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span>Con tôi học không kém, nhưng rất thiếu tự giác. Workshop này có phù hợp không?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-a"><p>Rất phù hợp. Chương trình không dành riêng cho những trẻ học yếu, mà dành cho những gia đình muốn con biết tự học, tự chịu trách nhiệm và phát triển nội lực để có thể học tập lâu dài mà không cần người lớn theo sát.</p></div>
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Con tôi học khá nhưng rất thiếu tự giác. Workshop này có phù hợp không?</span><span class="faq-toggle">+</span></button>
+        <div class="faq-a"><p>Rất phù hợp. Chương trình không dành riêng cho những trẻ học yếu, mà dành cho những gia đình muốn con biết tự học, tự chịu trách nhiệm và phát triển nội lực; giúp trẻ cảm nhận việc học như là hành trình khám phá, không phải bị ép học..</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>Điều gì tạo nên sự khác biệt của workshop này so với những khóa học nuôi dạy con khác?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-a"><p>Phương pháp này không phải là lý thuyết mà là một lộ trình thực chiến. Mẹ sẽ được hướng dẫn từng bước rõ ràng gồm Tách Nhiệm Vụ – Đồng Hành – Trao Quyền, kèm các công cụ để áp dụng ngay vào chính bối cảnh của gia đình mình.</p></div>
+        <div class="faq-a"><p>Phương pháp này không phải là lý thuyết mà là một lộ trình thực chiến rõ ràng gồm 5G: Gắn kết – Gợi mở – Giao quyền – Ghi nhận – Gần gũi cuộc sống, kèm các công cụ để mẹ có thể áp dụng ngay cho chính các con mình.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>Nếu tôi áp dụng chưa đúng hoặc gặp khó khăn trong quá trình thực hiện thì sao?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-a"><p>Mẹ không cần phải làm mọi thứ hoàn hảo ngay từ đầu. Chỉ cần bắt đầu từng bước theo lộ trình. Trong quá trình thực hành, mẹ được hướng dẫn và điều chỉnh để biết mình nên tiếp tục, thay đổi hay cải thiện điều gì, thay vì phải tự loay hoay một mình.</p></div>
+        <div class="faq-a"><p>Mẹ không cần phải làm mọi thứ hoàn hảo ngay từ đầu. Chỉ cần bắt đầu từng bước theo lộ trình. Trong quá trình thực hành, mẹ được hỗ trợ để biết mình nên thay đổi hay cải thiện điều gì cho phù hợp bối cảnh nhà mình, thay vì phải tự loay hoay một mình.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span>Tôi đã đăng ký nhưng bận, không xem trực tiếp được thì sao?</span><span class="faq-toggle">+</span></button>
-        <div class="faq-a"><p>Không sao. Toàn bộ 2 buổi workshop đều được ghi hình và gửi vào nhóm Zalo sau mỗi buổi. Mẹ có thể xem lại bất cứ lúc nào.</p></div>
+        <div class="faq-a"><p>Không sao. Toàn bộ 2 buổi workshop đều được ghi hình và gửi vào Nhóm Kín Zalo. Mẹ có thể xem lại bất cứ lúc nào.</p></div>
       </div>
     </div>
   </div>
@@ -854,8 +914,8 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
         <ul class="meet-facts">
           <li class="meet-fact"><span class="mf-dot"></span><span>Nuôi 2 con tự giác học từ tiểu học đến trung học — không học thêm kể cả môn tiếng Anh, luôn thuộc top đầu lớp.</span></li>
-          <li class="meet-fact"><span class="mf-dot"></span><span>Các con có ý thức rèn luyện phát triển đều Thân, Tâm, Trí. Chơi thể thao; phát triển nhiều kỹ năng mềm đàn, hát, lập trình... và đặc biệt tìm được đúng thế mạnh của bản thân ngay từ khi vào cấp 2.</span></li>
-          <li class="meet-fact"><span class="mf-dot"></span><span>Gia đình không còn tiếng quát mắng — về đến nhà là tiếng cười rộn ràng.</span></li>
+          <li class="meet-fact"><span class="mf-dot"></span><span>Các con có ý thức rèn luyện phát triển đều Thân, Tâm, Trí: chơi thể thao; phát triển nhiều kỹ năng mềm đàn, hát, lập trình,... và đặc biệt là các con tìm được đúng thế mạnh của bản thân ngay từ cuối Tiểu học và theo suốt đến Đại Học.</span></li>
+          <li class="meet-fact"><span class="mf-dot"></span><span>Gia đình không còn tiếng quát mắng — về đến nhà là chào hỏi, cười nói rộn ràng.</span></li>
         </ul>
 
         <div style="margin-top:32px;padding-top:26px;border-top:1px solid var(--border);">
@@ -878,7 +938,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
       <span class="theme-pill-outline">Con hào hứng học</span>
     </div>
     <h2>Mẹ ơi — con không hư.<br><em>Con chỉ chưa được hiểu đúng.</em></h2>
-    <p>99.000đ và 2 buổi tối. Đủ để bắt đầu thay đổi mối quan hệ với con và không khí trong gia đình.</p>
+    <p>99.000đ và 2 buổi tối. Đủ để mẹ giúp con duy trì cảm giác "Wow! Mình đã làm được".</p>
     <a href="#dang-ky" class="btn-cta" onclick="openRegModal();return false;">ĐĂNG KÝ NGAY</a>
     <div class="final-sub">Hoàn tiền 100% nếu không thấy giá trị sau buổi 1</div>
   </div>
@@ -887,7 +947,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
 <!-- ══ STICKY ══ -->
 <div class="sticky">
-  <p><strong>Workshop Mẹ Đồng Hành Con Tự Học</strong> · 15 &amp; 16/08 · Zoom online</p>
+  <p><strong>Workshop Mẹ Đồng Hành Con Tự Học</strong> · 18 &amp; 19/08 · Zoom online</p>
   <a href="#dang-ky" class="btn-sticky" onclick="openRegModal();return false;">Đăng ký · 99.000đ</a>
 </div>
 <div style="height:60px;"></div>
@@ -900,7 +960,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 
     <div class="modal-form" id="regFormWrap">
       <h3 class="modal-title">Nhập thông tin của bạn</h3>
-      <p class="modal-sub">Workshop tối 15 &amp; 16/08 · Chỉ 99.000đ · Giữ 1 trong số chỗ còn lại</p>
+      <p class="modal-sub">Workshop tối 18 &amp; 19/08 · Chỉ 99.000đ · Giữ 1 trong số chỗ còn lại</p>
       <form id="regForm">
         <input class="modal-field" type="text" name="name" placeholder="Tên của bạn" required>
         <input class="modal-field" type="email" name="email" placeholder="Email của bạn (để nhận link Zoom)" required>
