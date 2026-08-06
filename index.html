@@ -146,16 +146,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
   background:var(--white);border:1px solid var(--border);border-radius:24px;
   padding:8px 8px 0;box-shadow:0 20px 50px rgba(42,33,24,0.08);
 }
-.story-scrollbox{
-  max-height:560px;overflow-y:auto;padding:28px 28px 4px;
-  scrollbar-width:thin;scrollbar-color:var(--coral) var(--cream2);
-}
-.story-scrollbox::-webkit-scrollbar{width:7px;}
-.story-scrollbox::-webkit-scrollbar-track{background:var(--cream2);border-radius:4px;}
-.story-scrollbox::-webkit-scrollbar-thumb{background:var(--coral);border-radius:4px;}
-.story-hint{
-  text-align:center;font-size:12px;color:var(--muted);padding:12px 0 20px;font-style:italic;
-}
+.story-scrollbox{padding:28px 28px 24px;}
 .story-text p{color:var(--ink);font-size:16px;margin-bottom:16px;line-height:1.85;}
 .story-text p strong{color:var(--coral-dark);}
 .callout{
@@ -174,13 +165,17 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
 }
 .story-shift{margin:16px 0 24px;display:flex;flex-direction:column;gap:10px;}
 .story-shift-item{
-  display:flex;align-items:center;gap:12px;background:var(--cream2);border:1px solid var(--border);
+  display:grid;grid-template-columns:190px 22px 1fr;align-items:center;column-gap:12px;
+  background:var(--cream2);border:1px solid var(--border);
   border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.55;
 }
-.ss-from{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(107,92,74,0.4);flex-shrink:0;}
-.ss-arrow{color:var(--coral-dark);font-weight:700;flex-shrink:0;}
+.ss-from{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(107,92,74,0.4);}
+.ss-arrow{color:var(--coral-dark);font-weight:700;text-align:center;}
 .ss-to{color:var(--teal-dark);font-weight:600;}
-@media(max-width:520px){.story-shift-item{flex-wrap:wrap;}}
+@media(max-width:640px){
+  .story-shift-item{grid-template-columns:20px 1fr;row-gap:4px;}
+  .ss-from{grid-column:1 / -1;}
+}
 
 .story-moment{margin:32px 0 20px;}
 .story-moment-frame{border-radius:16px;overflow:hidden;box-shadow:0 16px 40px rgba(42,33,24,0.14);}
@@ -649,7 +644,6 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
           <p class="story-moment-caption">Không phải điểm số, không phải ép học, mà là cùng mẹ mở rộng tri thức</p>
         </div>
       </div>
-      <p class="story-hint">— Cuộn để đọc trọn câu chuyện —</p>
     </div>
   </div>
 </section>
@@ -762,7 +756,7 @@ h1,h2{font-family:'Cormorant Garamond',serif;line-height:1.18;}
           <ul style="margin:0;padding-left:20px;">
             <li>Bộ Câu Nói Kết Nối Tức Thì™</li>
             <li>Bộ Quy Tắc Điện Thoại Không Xung Đột™</li>
-            <li>10 câu hỏi vàng kích thích tư duy của con.</li>
+            <li>10 Câu Hỏi Vàng Kích Thích Tư Duy Của Con.</li>
           </ul>
         </div>
       </div>
