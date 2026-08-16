@@ -135,6 +135,7 @@ section[id]{scroll-margin-top:56px;}
 .btn-note{margin-top:12px;font-size:12.5px;color:rgba(255,255,255,0.55);margin-bottom:8px;}
 .hero-photo-wrap{position:relative;width:300px;max-width:80vw;margin:28px auto 0;}
 @media(min-width:640px){.hero-photo-wrap{width:400px;}}
+@media(min-width:1000px){.hero-photo-wrap{width:560px;}}
 .hero-photo{aspect-ratio:4/3;border-radius:20px;overflow:hidden;border:4px solid rgba(255,255,255,0.18);box-shadow:0 20px 50px rgba(0,0,0,0.35);}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block;}
 .hero-photo-tag{display:none;}
@@ -172,17 +173,21 @@ section[id]{scroll-margin-top:56px;}
 .badge-num-item:nth-child(3n+2) .badge-num{background:var(--teal);}
 .badge-num-item:nth-child(3n+3) .badge-num{background:var(--mustard-dark);}
 .badge-num-text{font-size:14.5px;color:var(--ink);font-weight:500;line-height:1.6;padding-top:5px;}
+.confident-block{
+  background:var(--mustard-tint);border-radius:16px;padding:24px 26px 10px;margin:20px 0;
+  box-shadow:0 8px 22px rgba(42,33,24,0.07);
+}
 .confident-line{
   font-family:'Be Vietnam Pro',sans-serif;font-weight:800;font-style:normal;color:var(--ink);
-  font-size:16.5px;line-height:1.6;background:var(--white);border-radius:10px;padding:14px 18px;
-  box-shadow:0 6px 18px rgba(42,33,24,0.06);
+  font-size:16.5px;line-height:1.65;text-align:center;
 }
-.story-shift{margin:16px 0;display:flex;flex-direction:column;gap:10px;}
-.story-shift-item{display:grid;grid-template-columns:150px 22px 1fr;align-items:center;column-gap:10px;background:var(--cream2);border-radius:12px;padding:14px 18px;font-size:14.5px;line-height:1.5;}
-.ss-from{color:var(--muted);text-decoration:line-through;}
+.story-shift{margin:18px 0 0;display:flex;flex-direction:column;border-top:1px solid rgba(185,128,30,0.25);}
+.story-shift-item{display:grid;grid-template-columns:1fr 24px 1.3fr;align-items:center;column-gap:12px;padding:14px 0;font-size:14.5px;line-height:1.5;border-bottom:1px solid rgba(185,128,30,0.25);}
+.story-shift-item:last-child{border-bottom:none;}
+.ss-from{color:var(--muted);text-decoration:line-through;text-align:right;}
 .ss-arrow{color:var(--coral-dark);font-weight:700;text-align:center;}
 .ss-to{color:var(--teal-dark);font-weight:700;}
-@media(max-width:560px){.story-shift-item{grid-template-columns:16px 1fr;row-gap:3px;}.ss-from{grid-column:1/-1;}}
+@media(max-width:560px){.story-shift-item{grid-template-columns:16px 1fr;row-gap:3px;}.ss-from{grid-column:1/-1;text-align:left;}}
 
 /* ── FRAMEWORK ── */
 .framework{background:var(--cream2);padding:70px 0;}
@@ -606,12 +611,14 @@ section[id]{scroll-margin-top:56px;}
       </div>
     </div>
 
-    <p class="confident-line">Không phải là 10 năm.<br>Không phải là nghiền ngẫm hàng chục cuốn sách.<br>Mà chỉ là 4 tiếng cho 2 buổi tối Workshop online từ Hoa, bạn sẽ dần giúp con từ:</p>
+    <div class="confident-block">
+      <p class="confident-line">Không phải là 10 năm.<br>Không phải là nghiền ngẫm hàng chục cuốn sách.<br>Mà chỉ là 4 tiếng cho 2 buổi tối Workshop online từ Hoa, bạn sẽ dần giúp con từ:</p>
 
-    <div class="story-shift">
-      <div class="story-shift-item"><span class="ss-from">Mải chơi</span><span class="ss-arrow">→</span><span class="ss-to">Chủ động học, thích học, tự học</span></div>
-      <div class="story-shift-item"><span class="ss-from">Nghiện màn hình</span><span class="ss-arrow">→</span><span class="ss-to">Xem có chọn lọc, ứng dụng vào bài học</span></div>
-      <div class="story-shift-item"><span class="ss-from">Né mẹ, giấu diếm mẹ</span><span class="ss-arrow">→</span><span class="ss-to">Tin tưởng, sẵn sàng kể mọi chuyện với mẹ</span></div>
+      <div class="story-shift">
+        <div class="story-shift-item"><span class="ss-from">Mải chơi</span><span class="ss-arrow">→</span><span class="ss-to">Chủ động học, thích học, tự học</span></div>
+        <div class="story-shift-item"><span class="ss-from">Nghiện màn hình</span><span class="ss-arrow">→</span><span class="ss-to">Xem có chọn lọc, ứng dụng vào bài học</span></div>
+        <div class="story-shift-item"><span class="ss-from">Né mẹ, giấu diếm mẹ</span><span class="ss-arrow">→</span><span class="ss-to">Tin tưởng, sẵn sàng kể mọi chuyện với mẹ</span></div>
+      </div>
     </div>
   </div>
 </section>
